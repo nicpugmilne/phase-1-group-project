@@ -1,4 +1,4 @@
-let quotesBtn = document.querySelector('#quotes')
+const quotesBtn = document.querySelector('#quotes')
 const textArea = document.getElementById('text-container')
 quotesBtn.addEventListener('click', () => {
 
@@ -27,7 +27,7 @@ function createQuote(quote) {
     blkQuote.append(span)
 }
 
-let jokesBtn = document.querySelector('#jokes')
+const jokesBtn = document.querySelector('#jokes')
 jokesBtn.addEventListener('click', () => {
     fetch('https://v2.jokeapi.dev/joke/Misc,Programming?safe-mode&type=single')
     .then (response => response.json())
@@ -52,4 +52,26 @@ function createJoke(joke){
     span.textContent = joke.joke
     textArea.append(blkQuote)
     blkQuote.append(span)
+}
+
+const goatsBtn = document.querySelector('#goats')
+goatsBtn.addEventListener('click', () => {
+    fetch('http://localhost:3000/goats')
+    .then(response => response.json())
+    .then(data => getGoat(data))
+})
+
+function getGoat(goat){
+    if (textArea.hasChildNodes()){
+        textArea.removeChild(textArea.firstChild);
+        createGoat(goat);
+    } else {
+        createGoat(goat);
+    }
+}
+
+function createGoat(goat){
+    const randomIndex = Math.floor(Math.random()*goat.length)
+    const img = document.querySelector('#image')
+    img.src = goat[randomIndex].image
 }
