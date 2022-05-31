@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display&display=swap');
+
 /* Styling WIP fonts and colors just used to make seeing things easier*/
 * {
     box-sizing: border-box;
@@ -25,16 +27,16 @@ body {
 }
 
 #image {
-    left: 40%;
-    bottom:63%;
-    margin: auto;
-    position: absolute;
-    margin: auto;
-    z-index: 0;
+    transform: translateX(90%) translateY(-80%);
+    max-height: 50vh;
+    max-width: 60vw;
+    margin: 3vh 0 0 0;
+    /* object-position: 50% 50%; */
+    z-index: 1;
 }
 
 #text-container {
-    margin: auto;
+    margin: 10vh 0 0 0;
     height: 100%;
     width: 80%;
     flex-direction: column;
@@ -46,8 +48,8 @@ body {
 
 .text {
     font-size: 2vw;
+    font-family: 'Playfair Display';
 }
-
 
 #btn-container{
     margin: auto;
@@ -57,10 +59,11 @@ body {
     height: 20%;
 }   
 
-.some-btn {
+.custom-btn.btn-2 {
     height: 6vh;
     width: 12vw;
     margin: 3vh 3vw 2vh 3vw;
+    z-index: 2;
 }
 
 form {
@@ -130,9 +133,9 @@ html, body {
 
     .bubbles h1 {
     position: relative;
-    margin: .75em 0 0;
-    font-family: 'Luckiest Guy', cursive;
-    font-weight: bold;
+    margin: 1.5em 0 0 0;
+    font-family: 'Lobster';
+    /* font-weight: bold; */
     font-size: 4.5em;
     color: blue;
     z-index: 1;
@@ -159,3 +162,49 @@ html, body {
         }
     }
 /*end of codepen*/
+
+/* 3 */
+.frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+  button {
+    margin: 20px;
+  }
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+/* 2 */
+.btn-2 {
+    background: rgb(96,9,240);
+    background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+    border: none;
+    
+  }
+  .btn-2:before {
+    height: 0%;
+    width: 2px;
+  }
+  .btn-2:hover {
+    box-shadow:  
+      inset -4px -4px 6px 0 rgba(255,255,255,.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+  }

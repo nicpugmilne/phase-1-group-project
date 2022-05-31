@@ -58,20 +58,12 @@ const goatsBtn = document.querySelector('#goats')
 goatsBtn.addEventListener('click', () => {
     fetch('http://localhost:3000/goats')
     .then(response => response.json())
-    .then(data => getGoat(data))
+    .then(data => createGoat(data))
 })
-
-function getGoat(goat){
-    if (textArea.hasChildNodes()){
-        textArea.removeChild(textArea.firstChild);
-        createGoat(goat);
-    } else {
-        createGoat(goat);
-    }
-}
 
 function createGoat(goat){
     const randomIndex = Math.floor(Math.random()*goat.length)
     const img = document.querySelector('#image')
+    img.alt = 'Goat Image'
     img.src = goat[randomIndex].image
 }
