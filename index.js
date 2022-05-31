@@ -29,7 +29,7 @@ function createQuote(quote) {
 
 const jokesBtn = document.querySelector('#jokes')
 jokesBtn.addEventListener('click', () => {
-    fetch('https://v2.jokeapi.dev/joke/Misc,Programming?safe-mode&type=single')
+    fetch('https://v2.jokeapi.dev/joke/Misc,Pun,Programming?safe-mode&type=single')
     .then (response => response.json())
     .then (data => getJoke(data))
     .catch(error => console.log(error + ' error message from Jokes API'))
