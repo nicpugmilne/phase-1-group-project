@@ -1,26 +1,22 @@
-// got the fetches up and running! They're just console logged for now so that I could verify that we were appropriately receiving the data
 let quotesBtn = document.querySelector('#quotes')
 const textArea = document.getElementById('text-container')
-quotesBtn.addEventListener('click', (e) => {
+quotesBtn.addEventListener('click', () => {
 
 fetch('https://api.kanye.rest/')
 .then (response => response.json())
-.then (data => createQuote(data))
-
-// replaceQuote()
+.then (data => getQuote(data))
 })
 
-// function replaceQuote() {
-//     if(textArea.contains(blkQuote)) {
-//     blkQuote.remove()
-//     createQuote()
-// }
-//     else 
-//     createQuote()
-//     }
+function getQuote(quote){
+    if (textArea.hasChildNodes()){
+        textArea.removeChild(textArea.firstChild);
+        createQuote(quote);
+    } else {
+        createQuote(quote);
+    }
+}
 
 function createQuote(quote) {
-
     const blkQuote = document.createElement('blockquote')
     const span = document.createElement('span')
 
@@ -30,7 +26,30 @@ function createQuote(quote) {
     textArea.append(blkQuote)
     blkQuote.append(span)
 }
-fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist,explicit')
-.then (response => response.json())
-.then (data => console.log(data))
-.catch(error => console.log(error + ' error message from Jokes API'))
+
+let jokesBtn = document.querySelector('#jokes')
+jokesBtn.addEventListener('click', () => {
+    fetch('https://v2.jokeapi.dev/joke/Misc,Programming?safe-mode&type=single')
+    .then (response => response.json())
+    .then (data => getJoke(data))
+    .catch(error => console.log(error + ' error message from Jokes API'))
+})
+
+function getJoke(joke){
+    if (textArea.hasChildNodes()){
+        textArea.removeChild(textArea.firstChild);
+        createJoke(joke);
+    } else {
+        createJoke(joke);
+    }
+}
+
+function createJoke(joke){
+    const blkQuote = document.createElement('blockquote')
+    const span = document.createElement('span')
+
+    blkQuote.className = 'text'
+    span.textContent = joke.joke
+    textArea.append(blkQuote)
+    blkQuote.append(span)
+}
