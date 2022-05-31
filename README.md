@@ -15,7 +15,8 @@ Nicola and Kaegan build a basic web application!
 - We will iterate through our array of goat images with an easter egg covering the screen in goats (for even more fun)!
 
 **Wireframes**
-https://whimsical.com/joke-quotes-and-goats-KBQ1hFkrmG3psV7QNhq46P
+![image](https://user-images.githubusercontent.com/22488520/171217962-292aea1d-2e0b-4527-a009-458a4490ce2c.png)
+
 
 **User stories**
 - As a user, I can click a button to request a random quote, so that I can share the wisdom with friends.
