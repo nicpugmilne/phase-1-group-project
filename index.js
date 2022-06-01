@@ -1,11 +1,13 @@
-const quotesBtn = document.querySelector('#quotes')
 const textArea = document.getElementById('text-container')
-const creatingGoats = false;
-quotesBtn.addEventListener('click', () => {
 
-fetch('https://api.kanye.rest/')
-.then (response => response.json())
-.then (data => getQuote(data))
+// Quotes code below
+
+const quotesBtn = document.querySelector('#quotes')
+
+quotesBtn.addEventListener('click', () => {
+    fetch('https://api.kanye.rest/')
+    .then (response => response.json())
+    .then (data => getQuote(data))
 })
 
 function getQuote(quote){
@@ -22,13 +24,16 @@ function createQuote(quote) {
     const span = document.createElement('span')
 
     blkQuote.className = 'text'
-    span.textContent = quote.quote
+    span.textContent = '"'+ quote.quote + '" - K. West'
 
     textArea.append(blkQuote)
     blkQuote.append(span)
 }
 
+//All about jokes
+
 const jokesBtn = document.querySelector('#jokes')
+
 jokesBtn.addEventListener('click', () => {
     fetch('https://v2.jokeapi.dev/joke/Misc,Pun,Programming?safe-mode&type=single')
     .then (response => response.json())
@@ -54,6 +59,8 @@ function createJoke(joke){
     textArea.append(blkQuote)
     blkQuote.append(span)
 }
+
+//Goat stuff below
 
 const goatsBtn = document.querySelector('#goats')
 goatsBtn.addEventListener('click', () => {
@@ -97,6 +104,4 @@ function goatSpam(goats){
         }, i * 350);
     })
 }
-
-document.addEventListener('keyup', () => clearTimeout());
 
