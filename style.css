@@ -30,8 +30,9 @@ body {
     transform: translateX(90%) translateY(-80%);
     max-height: 50vh;
     max-width: 60vw;
+    /* min-height: 488px;
+    min-width: 325px; */
     margin: 3vh 0 0 0;
-    /* object-position: 50% 50%; */
     z-index: 1;
 }
 
