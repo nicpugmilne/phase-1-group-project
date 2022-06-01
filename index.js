@@ -1,5 +1,6 @@
 const quotesBtn = document.querySelector('#quotes')
 const textArea = document.getElementById('text-container')
+const creatingGoats = false;
 quotesBtn.addEventListener('click', () => {
 
 fetch('https://api.kanye.rest/')
@@ -67,3 +68,35 @@ function createGoat(goat){
     img.alt = 'Goat Image'
     img.src = goat[randomIndex].image
 }
+
+document.addEventListener('keydown', () => {
+    fetch('http://localhost:3000/goats')
+    .then(response => response.json())
+    .then(data => goatSpam(data))
+})
+
+function goatSpam(goats){
+    const goatDiv = document.createElement('div');
+    goatDiv.style.position = 'absolute';
+    goatDiv.style.maxHeight = '100%';
+    goatDiv.style.maxWidth = '100%';
+    document.body.append(goatDiv);
+    goats.forEach((goat, i) => {
+        setTimeout(() => {
+            const floatingGoat = document.createElement('img');
+            floatingGoat.src = goat.image
+            const spaceW = screen.height - floatingGoat.height;
+            const spaceH = screen.width - floatingGoat.width;
+            floatingGoat.style.top = Math.random() * spaceW + "px";
+            floatingGoat.style.left = Math.random() * spaceH + "px";
+            floatingGoat.classList.add('floatingGoat')
+            goatDiv.append(floatingGoat);
+            floatingGoat.addEventListener('mouseover', (e) => {
+            e.target.remove()
+            })
+        }, i * 350);
+    })
+}
+
+document.addEventListener('keyup', () => clearTimeout());
+

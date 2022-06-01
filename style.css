@@ -98,6 +98,13 @@ p {
     height: 50%;
 }
 
+.floatingGoat {
+    max-width: 25vw;
+    max-height: 20vw;
+    position: fixed;
+    z-index: 4;
+}
+
 /* Codepen for animated buttons */
 /* Will look at color changing later */
 .btn-1 {
