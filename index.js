@@ -105,6 +105,28 @@ function goatSpam(goats){
     })
 }
 
+// New goat submission form. Using this to create new goat images more easily
+const form = document.querySelector('#new-goat-submission');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const inputValue = document.getElementById('img-url').value;
+    const data = { image: inputValue };
+    fetch('http://localhost:3000/goats', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      form.reset();
+});
 
 // Below is what I've been playing with to try get the counting to stop, but I haven't got it working yet. Each click is still creating new sets of goats :sweat_smile:
 
