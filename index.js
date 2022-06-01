@@ -61,8 +61,8 @@ function createJoke(joke){
 }
 
 //Goat stuff below
-
 const goatsBtn = document.querySelector('#goats')
+
 goatsBtn.addEventListener('click', () => {
     fetch('http://localhost:3000/goats')
     .then(response => response.json())
@@ -70,10 +70,10 @@ goatsBtn.addEventListener('click', () => {
 })
 
 function createGoat(goat){
-    const randomIndex = Math.floor(Math.random()*goat.length)
-    const img = document.querySelector('#image')
-    img.alt = 'Goat Image'
-    img.src = goat[randomIndex].image
+    const randomIndex = Math.floor(Math.random()*goat.length);
+    const img = document.querySelector('#image');
+    img.alt = 'Goat Image';
+    img.src = goat[randomIndex].image;
 }
 
 document.addEventListener('keydown', () => {
@@ -105,3 +105,37 @@ function goatSpam(goats){
     })
 }
 
+
+// Below is what I've been playing with to try get the counting to stop, but I haven't got it working yet. Each click is still creating new sets of goats :sweat_smile:
+
+// const creatingGoats = false;
+//  function goatSpam(goats){
+//     const goatDiv = document.createElement('div');
+//     goatDiv.style.position = 'absolute';
+//     goatDiv.style.maxHeight = '100%';
+//     goatDiv.style.maxWidth = '100%';
+//     document.body.append(goatDiv);
+//     let i = 0;
+//     for (let goat of goats){
+//         if (creatingGoats === false){
+//             i++
+//             setTimeout(() => {
+//                 const floatingGoat = document.createElement('img');
+//                 floatingGoat.src = goat.image
+//                 const spaceW = screen.height - floatingGoat.height;
+//                 const spaceH = screen.width - floatingGoat.width;
+//                 floatingGoat.style.top = Math.random() * spaceW + "px";
+//                 floatingGoat.style.left = Math.random() * spaceH + "px";
+//                 floatingGoat.classList.add('floatingGoat')
+//                 goatDiv.append(floatingGoat);
+//                 floatingGoat.addEventListener('mouseover', (e) => {
+//                 e.target.remove()
+//                 })
+//             }, i * 350); 
+//         } else {
+//             creatingGoats = false;
+//             break;
+//         }
+//     }
+//     creatingGoats = true;
+// }
