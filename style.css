@@ -143,12 +143,20 @@ html, body {
     position: relative;
     margin: 1.5em 0 0 0;
     font-family: 'Lobster';
-    /* font-weight: bold; */
     font-size: 4.5em;
     color: blue;
     z-index: 1;
     }
+
+    h1{
+        animation: moveOut 1s cubic-bezier(0.2,-1,0.8,2) forwards;
+    }
     /* end of codepen */
+    
+    @keyframes moveOut { 
+        0% {transform: translateY(-200%);}
+        100% {transform: translateY(0%);}
+    }
 
     /* animated background codepen by Manuel Pinto*/
     body {
@@ -171,7 +179,7 @@ html, body {
     }
 /*end of codepen*/
 
-/* 3 */
+/* Animated button codepen*/
 .frame {
     width: 90%;
     margin: 40px auto;
@@ -215,4 +223,63 @@ html, body {
     box-shadow:  
       inset -4px -4px 6px 0 rgba(255,255,255,.2),
       inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+  }
+  /*codepen end*/
+
+  /*Fade in image animation*/
+  .fade-in-image {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+/*typing codepen*/
+  .typing-demo {
+    width: 22ch;
+    animation: typing 2.3s steps(22), blink 0.5s step-end 5 alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    border-color: transparent;
+    font-family: monospace;
+    font-size: 2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: black
+
+    }
   }
