@@ -22,16 +22,17 @@ body {
 }
 
 #img-container {
-    height: 10%;
+  position: absolute;
+    height: 100%;
     width: 100%;
 }
 
 #image {
-    transform: translateX(90%) translateY(-80%);
-    max-height: 50vh;
-    max-width: 60vw;
-    /* min-height: 488px;
-    min-width: 325px; */
+    transform: translateX(120%) translateY(15%);
+    align-items: initial;
+    max-height: 40vh;
+    max-width: 40vw;
+    min-width: 30vw;
     margin: 3vh 0 0 0;
     z-index: 1;
 }
