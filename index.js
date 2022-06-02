@@ -62,6 +62,7 @@ function createJoke(joke){
 
 //Goat stuff below
 const goatsBtn = document.querySelector('#goats')
+const h1 = document.querySelector('h1')
 
 goatsBtn.addEventListener('click', () => {
     fetch('http://localhost:3000/goats')
@@ -73,7 +74,9 @@ function createGoat(goat){
     const randomIndex = Math.floor(Math.random()*goat.length);
     const img = document.querySelector('#image');
     img.alt = 'Goat Image';
+    img.className = "fade-in-image"
     img.src = goat[randomIndex].image;
+    h1.style.color = 'transparent'
 }
 
 document.addEventListener('keydown', () => {
