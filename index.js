@@ -1,4 +1,5 @@
 const textArea = document.getElementById('text-container')
+const img = document.querySelector('#image');
 
 // Quotes code below
 
@@ -72,7 +73,6 @@ goatsBtn.addEventListener('click', () => {
 
 function createGoat(goat){
     const randomIndex = Math.floor(Math.random()*goat.length);
-    const img = document.querySelector('#image');
     img.alt = 'Goat Image';
     img.className = "fade-in-image"
     img.src = goat[randomIndex].image;
@@ -131,6 +131,8 @@ form.addEventListener('submit', (e) => {
         console.error('Error:', error);
       });
       form.reset();
+      img.src = inputValue;
+      h1.style.color = 'transparent'
 });
 
 // Below is what I've been playing with to try get the counting to stop, but I haven't got it working yet. Each click is still creating new sets of goats :sweat_smile:
