@@ -79,10 +79,12 @@ function createGoat(goat){
     h1.style.color = 'transparent'
 }
 
-document.addEventListener('keydown', () => {
-    fetch('http://localhost:3000/goats')
-    .then(response => response.json())
-    .then(data => goatSpam(data))
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Space"){
+        fetch('http://localhost:3000/goats')
+        .then(response => response.json())
+        .then(data => goatSpam(data))
+    }
 })
 
 function goatSpam(goats){
