@@ -1,8 +1,6 @@
 const textArea = document.getElementById('text-container')
 const img = document.querySelector('#image');
 
-// Quotes code below
-
 const quotesBtn = document.querySelector('#quotes')
 
 quotesBtn.addEventListener('click', () => {
@@ -31,7 +29,6 @@ function createQuote(quote) {
     blkQuote.append(span)
 }
 
-//All about jokes
 
 const jokesBtn = document.querySelector('#jokes')
 
@@ -61,7 +58,6 @@ function createJoke(joke){
     blkQuote.append(span)
 }
 
-//Goat stuff below
 const goatsBtn = document.querySelector('#goats')
 const h1 = document.querySelector('h1')
 
@@ -110,7 +106,6 @@ function goatSpam(goats){
     })
 }
 
-// New goat submission form. Using this to create new goat images more easily
 const form = document.querySelector('#new-goat-submission');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -134,37 +129,3 @@ form.addEventListener('submit', (e) => {
       img.src = inputValue;
       h1.style.color = 'transparent'
 });
-
-// Below is what I've been playing with to try get the counting to stop, but I haven't got it working yet. Each click is still creating new sets of goats :sweat_smile:
-
-// const creatingGoats = false;
-//  function goatSpam(goats){
-//     const goatDiv = document.createElement('div');
-//     goatDiv.style.position = 'absolute';
-//     goatDiv.style.maxHeight = '100%';
-//     goatDiv.style.maxWidth = '100%';
-//     document.body.append(goatDiv);
-//     let i = 0;
-//     for (let goat of goats){
-//         if (creatingGoats === false){
-//             i++
-//             setTimeout(() => {
-//                 const floatingGoat = document.createElement('img');
-//                 floatingGoat.src = goat.image
-//                 const spaceW = screen.height - floatingGoat.height;
-//                 const spaceH = screen.width - floatingGoat.width;
-//                 floatingGoat.style.top = Math.random() * spaceW + "px";
-//                 floatingGoat.style.left = Math.random() * spaceH + "px";
-//                 floatingGoat.classList.add('floatingGoat')
-//                 goatDiv.append(floatingGoat);
-//                 floatingGoat.addEventListener('mouseover', (e) => {
-//                 e.target.remove()
-//                 })
-//             }, i * 350); 
-//         } else {
-//             creatingGoats = false;
-//             break;
-//         }
-//     }
-//     creatingGoats = true;
-// }
